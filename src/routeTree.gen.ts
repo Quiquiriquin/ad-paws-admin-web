@@ -11,14 +11,10 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as UsuariosRouteImport } from './routes/usuarios/route'
 import { Route as NegocioRouteImport } from './routes/negocio/route'
 import { Route as completeRouteImport } from './routes/(complete)/route'
 import { Route as IndexImport } from './routes/index'
-import { Route as UsuariosRegistroImport } from './routes/usuarios/registro'
-import { Route as UsuariosLoginImport } from './routes/usuarios/login'
 import { Route as completeCompletarRegistroImport } from './routes/(complete)/completar-registro'
-import { Route as UsuariosDashboardRouteImport } from './routes/usuarios/dashboard/route'
 import { Route as NegocioDashboardRouteImport } from './routes/negocio/dashboard/route'
 import { Route as NegocioauthRouteImport } from './routes/negocio/(auth)/route'
 import { Route as NegocioDashboardMascotasImport } from './routes/negocio/dashboard/mascotas'
@@ -28,12 +24,6 @@ import { Route as NegocioauthOlvideMiContrasenaImport } from './routes/negocio/(
 import { Route as NegocioauthLoginImport } from './routes/negocio/(auth)/login'
 
 // Create/Update Routes
-
-const UsuariosRouteRoute = UsuariosRouteImport.update({
-  id: '/usuarios',
-  path: '/usuarios',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const NegocioRouteRoute = NegocioRouteImport.update({
   id: '/negocio',
@@ -52,28 +42,10 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const UsuariosRegistroRoute = UsuariosRegistroImport.update({
-  id: '/registro',
-  path: '/registro',
-  getParentRoute: () => UsuariosRouteRoute,
-} as any)
-
-const UsuariosLoginRoute = UsuariosLoginImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => UsuariosRouteRoute,
-} as any)
-
 const completeCompletarRegistroRoute = completeCompletarRegistroImport.update({
   id: '/completar-registro',
   path: '/completar-registro',
   getParentRoute: () => completeRouteRoute,
-} as any)
-
-const UsuariosDashboardRouteRoute = UsuariosDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => UsuariosRouteRoute,
 } as any)
 
 const NegocioDashboardRouteRoute = NegocioDashboardRouteImport.update({
@@ -143,13 +115,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NegocioRouteImport
       parentRoute: typeof rootRoute
     }
-    '/usuarios': {
-      id: '/usuarios'
-      path: '/usuarios'
-      fullPath: '/usuarios'
-      preLoaderRoute: typeof UsuariosRouteImport
-      parentRoute: typeof rootRoute
-    }
     '/negocio/(auth)': {
       id: '/negocio/(auth)'
       path: '/'
@@ -164,33 +129,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NegocioDashboardRouteImport
       parentRoute: typeof NegocioRouteImport
     }
-    '/usuarios/dashboard': {
-      id: '/usuarios/dashboard'
-      path: '/dashboard'
-      fullPath: '/usuarios/dashboard'
-      preLoaderRoute: typeof UsuariosDashboardRouteImport
-      parentRoute: typeof UsuariosRouteImport
-    }
     '/(complete)/completar-registro': {
       id: '/(complete)/completar-registro'
       path: '/completar-registro'
       fullPath: '/completar-registro'
       preLoaderRoute: typeof completeCompletarRegistroImport
       parentRoute: typeof completeRouteImport
-    }
-    '/usuarios/login': {
-      id: '/usuarios/login'
-      path: '/login'
-      fullPath: '/usuarios/login'
-      preLoaderRoute: typeof UsuariosLoginImport
-      parentRoute: typeof UsuariosRouteImport
-    }
-    '/usuarios/registro': {
-      id: '/usuarios/registro'
-      path: '/registro'
-      fullPath: '/usuarios/registro'
-      preLoaderRoute: typeof UsuariosRegistroImport
-      parentRoute: typeof UsuariosRouteImport
     }
     '/negocio/(auth)/login': {
       id: '/negocio/(auth)/login'
@@ -288,32 +232,12 @@ const NegocioRouteRouteWithChildren = NegocioRouteRoute._addFileChildren(
   NegocioRouteRouteChildren,
 )
 
-interface UsuariosRouteRouteChildren {
-  UsuariosDashboardRouteRoute: typeof UsuariosDashboardRouteRoute
-  UsuariosLoginRoute: typeof UsuariosLoginRoute
-  UsuariosRegistroRoute: typeof UsuariosRegistroRoute
-}
-
-const UsuariosRouteRouteChildren: UsuariosRouteRouteChildren = {
-  UsuariosDashboardRouteRoute: UsuariosDashboardRouteRoute,
-  UsuariosLoginRoute: UsuariosLoginRoute,
-  UsuariosRegistroRoute: UsuariosRegistroRoute,
-}
-
-const UsuariosRouteRouteWithChildren = UsuariosRouteRoute._addFileChildren(
-  UsuariosRouteRouteChildren,
-)
-
 export interface FileRoutesByFullPath {
   '/': typeof completeRouteRouteWithChildren
   '/negocio': typeof NegocioRouteRouteWithChildren
-  '/usuarios': typeof UsuariosRouteRouteWithChildren
   '/negocio/': typeof NegocioauthRouteRouteWithChildren
   '/negocio/dashboard': typeof NegocioDashboardRouteRouteWithChildren
-  '/usuarios/dashboard': typeof UsuariosDashboardRouteRoute
   '/completar-registro': typeof completeCompletarRegistroRoute
-  '/usuarios/login': typeof UsuariosLoginRoute
-  '/usuarios/registro': typeof UsuariosRegistroRoute
   '/negocio/login': typeof NegocioauthLoginRoute
   '/negocio/olvide-mi-contrasena': typeof NegocioauthOlvideMiContrasenaRoute
   '/negocio/registrate': typeof NegocioauthRegistrateRoute
@@ -323,13 +247,9 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof completeRouteRouteWithChildren
-  '/usuarios': typeof UsuariosRouteRouteWithChildren
   '/negocio': typeof NegocioauthRouteRouteWithChildren
   '/negocio/dashboard': typeof NegocioDashboardRouteRouteWithChildren
-  '/usuarios/dashboard': typeof UsuariosDashboardRouteRoute
   '/completar-registro': typeof completeCompletarRegistroRoute
-  '/usuarios/login': typeof UsuariosLoginRoute
-  '/usuarios/registro': typeof UsuariosRegistroRoute
   '/negocio/login': typeof NegocioauthLoginRoute
   '/negocio/olvide-mi-contrasena': typeof NegocioauthOlvideMiContrasenaRoute
   '/negocio/registrate': typeof NegocioauthRegistrateRoute
@@ -342,13 +262,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/(complete)': typeof completeRouteRouteWithChildren
   '/negocio': typeof NegocioRouteRouteWithChildren
-  '/usuarios': typeof UsuariosRouteRouteWithChildren
   '/negocio/(auth)': typeof NegocioauthRouteRouteWithChildren
   '/negocio/dashboard': typeof NegocioDashboardRouteRouteWithChildren
-  '/usuarios/dashboard': typeof UsuariosDashboardRouteRoute
   '/(complete)/completar-registro': typeof completeCompletarRegistroRoute
-  '/usuarios/login': typeof UsuariosLoginRoute
-  '/usuarios/registro': typeof UsuariosRegistroRoute
   '/negocio/(auth)/login': typeof NegocioauthLoginRoute
   '/negocio/(auth)/olvide-mi-contrasena': typeof NegocioauthOlvideMiContrasenaRoute
   '/negocio/(auth)/registrate': typeof NegocioauthRegistrateRoute
@@ -361,13 +277,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/negocio'
-    | '/usuarios'
     | '/negocio/'
     | '/negocio/dashboard'
-    | '/usuarios/dashboard'
     | '/completar-registro'
-    | '/usuarios/login'
-    | '/usuarios/registro'
     | '/negocio/login'
     | '/negocio/olvide-mi-contrasena'
     | '/negocio/registrate'
@@ -376,13 +288,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/usuarios'
     | '/negocio'
     | '/negocio/dashboard'
-    | '/usuarios/dashboard'
     | '/completar-registro'
-    | '/usuarios/login'
-    | '/usuarios/registro'
     | '/negocio/login'
     | '/negocio/olvide-mi-contrasena'
     | '/negocio/registrate'
@@ -393,13 +301,9 @@ export interface FileRouteTypes {
     | '/'
     | '/(complete)'
     | '/negocio'
-    | '/usuarios'
     | '/negocio/(auth)'
     | '/negocio/dashboard'
-    | '/usuarios/dashboard'
     | '/(complete)/completar-registro'
-    | '/usuarios/login'
-    | '/usuarios/registro'
     | '/negocio/(auth)/login'
     | '/negocio/(auth)/olvide-mi-contrasena'
     | '/negocio/(auth)/registrate'
@@ -412,14 +316,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   completeRouteRoute: typeof completeRouteRouteWithChildren
   NegocioRouteRoute: typeof NegocioRouteRouteWithChildren
-  UsuariosRouteRoute: typeof UsuariosRouteRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   completeRouteRoute: completeRouteRouteWithChildren,
   NegocioRouteRoute: NegocioRouteRouteWithChildren,
-  UsuariosRouteRoute: UsuariosRouteRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -434,8 +336,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/(complete)",
-        "/negocio",
-        "/usuarios"
+        "/negocio"
       ]
     },
     "/": {
@@ -452,14 +353,6 @@ export const routeTree = rootRoute
       "children": [
         "/negocio/(auth)",
         "/negocio/dashboard"
-      ]
-    },
-    "/usuarios": {
-      "filePath": "usuarios/route.tsx",
-      "children": [
-        "/usuarios/dashboard",
-        "/usuarios/login",
-        "/usuarios/registro"
       ]
     },
     "/negocio/(auth)": {
@@ -479,21 +372,9 @@ export const routeTree = rootRoute
         "/negocio/dashboard/mascotas"
       ]
     },
-    "/usuarios/dashboard": {
-      "filePath": "usuarios/dashboard/route.tsx",
-      "parent": "/usuarios"
-    },
     "/(complete)/completar-registro": {
       "filePath": "(complete)/completar-registro.tsx",
       "parent": "/(complete)"
-    },
-    "/usuarios/login": {
-      "filePath": "usuarios/login.tsx",
-      "parent": "/usuarios"
-    },
-    "/usuarios/registro": {
-      "filePath": "usuarios/registro.tsx",
-      "parent": "/usuarios"
     },
     "/negocio/(auth)/login": {
       "filePath": "negocio/(auth)/login.tsx",
