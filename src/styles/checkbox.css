@@ -1,0 +1,26 @@
+
+.large-checkbox .ant-checkbox-input {
+  width: 24px;
+  height: 24px;
+}
+
+.large-checkbox .ant-checkbox-inner {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px; /* Opcional: para esquinas más suaves */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.large-checkbox .ant-checkbox-inner::after {
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 12px;
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  content: '';
+  position: absolute;
+}

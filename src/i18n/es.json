@@ -1,0 +1,43 @@
+{
+    "sign-in-title": "Iniciar sesión",
+    "sign-in-action-button": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "email-placeholder": "correo@ejemplo.com",
+    "password-placeholder": "********",
+    "sign-up-title": "Regístrate",
+    "sign-up-subtitle": "Estás a un paso de unirte a nosotros",
+    "sign-up-action-button": "Registrarme",
+    "first-name": "Nombre",
+    "firstname-placeholder": "John",
+    "last-name": "Apellido",
+    "lastname-placeholder": "Doe",
+    "password-signup": "Crea tu contraseña",
+    "confirm-password": "Confirma tu contraseña",
+    "confirm-password-placeholder": "********",
+    "forgot-password": "¿Olvidaste tu contraseña?",
+    "email-required": "El correo electrónico es obligatorio",
+    "email-invalid": "El correo electrónico no es válido",
+    "password-required": "La contraseña es requerida",
+    "confirm-password-required": "La confirmación de la contraseña es requerida",
+    "do-you-have-account": "¿Aún no tienes una cuenta? Regístrate aquí",
+    "name": "Nombre",
+    "name-placeholder": "Ingresa tu nombre",
+    "name-required": "El nombre es obligatorio",
+    
+    "lastname": "Apellido",
+    "lastname-required": "El apellido es obligatorio",
+    
+    "gender": "Género",
+    "gender-placeholder": "Selecciona tu género",
+    "gender-required": "El género es obligatorio",
+    "male": "Masculino",
+    "female": "Femenino",
+    "other": "Otro",
+    
+    "phone": "Teléfono",
+    "phone-placeholder": "1234567890",
+    "phone-numbers-only": "El teléfono solo debe contener números",
+    
+    "continue": "Continuar"
+}

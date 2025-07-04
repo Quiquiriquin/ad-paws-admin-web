@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@theme {
+  --color-light: #FAFAF7
+  --color-forest-50:  #f0f9f7;
+  --color-forest-100: #dcf2ed;
+  --color-forest-200: #bce5db;
+  --color-forest-300: #8fd3c4;
+  --color-forest-400: #5bbaa7;
+  --color-forest-500: #3f9d8b;
+  --color-forest-600: #1c4f4a;
+  --color-forest-700: #17413d;
+  --color-forest-800: #133532;
+  --color-forest-900: #112c29;
+  --color-forest-950: #0a1918;
+}
+
+.ant-input-number {
+  padding-right: 11px; /* opcional, para compensar el espacio */
+}
+
+.ant-input-number-handler-wrap {
+  display: none;
+}
